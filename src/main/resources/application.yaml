@@ -1,0 +1,27 @@
+server:
+  port: 8089
+
+spring:
+  servlet:
+    multipart:
+      maxFileSize: 10MB
+      maxRequestSize: 100MB
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/mybatis
+    username: root
+    password: li970511
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+mybatis:
+  mapper-locations: classpath:mybatis/mapper/*.xml   #指定Mapper配置文件的位置
+  configuration:
+    map-underscore-to-camel-case: true  #开启驼峰命名
+
+management:
+  endpoints:
+    enabled-by-default: true #暴露所有端点信息
+    web:
+      exposure:
+        include: '*'  #以web方式暴露
